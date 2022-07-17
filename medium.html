@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="hu">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>EHJKH1 - webprogramozás beadandó - közepes szint</title>
+
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<!--
+Lakosi Bence
+EHJKH1
+KÜLDÖNCÖK – WEBPROGRAMOZÁS JAVASCRIPT BEADANDÓ
+2019.11.10.
+Ezt a megoldást Lakosi Bence, EHJKH1 küldte be és készítette a WEBPROGRAMOZÁS kurzus KÜLDÖNCÖK feladatához.
+Kijelentem, hogy ez a megoldás a saját munkám.
+Nem másoltam vagy használtam harmadik féltől származó megoldásokat.
+Nem továbbítottam megoldást hallgatótársaimnak, és nem is tettem közzé.
+Az Eötvös Loránd Tudományegyetem Hallgatói Követelményrendszere (ELTE szervezeti és működési szabályzata, II. Kötet, 74/C. §) kimondja, 
+hogy mindaddig, amíg egy hallgató egy másik hallgató munkáját - vagy legalábbis annak jelentős részét - saját munkájaként mutatja be, 
+az fegyelmi vétségnek számít. A fegyelmi vétség legsúlyosabb következménye a hallgató elbocsátása az egyetemről.
+-->
+
+<body class="level-page medium">
+    <h1 class="title">Közepes</h1>
+
+    <div class="table">
+    </div>
+
+    <div class="button-wrapper">
+        <button class="button button-load" onclick="kuldoncokGame.load()">Játék betöltése</button>
+        <button class="button button-save" onclick="kuldoncokGame.save()">Játék mentése</button>
+    </div>
+
+    <a class="back-button" href="index.html">&#8249;</a>
+    <script src="index.js"></script>
+
+    <script>
+        const initialField = [
+            [
+                {
+                    value: 2
+                },
+                {
+                    value: 0
+                },
+                {
+                    value: 0
+                },
+                {
+                    value: 9
+                },
+                {
+                    value: 0
+                },
+                {
+                    value: 0
+                },
+                {
+                    value: 0
+                },
+                {
+                    value: 5
+                },
+                {
+                    value: 0
+                }
+            ],
+            [
+                {
+                    value: 1
+                },
+                {
+                    value: 0
+                },
+                {
+                    value: 0
+                },
+                {
+                    value: 8
+                },
+                {
+                    value: 0
+                },
+                {
+                    value: 11
+                },
+                {
+                    value: 0
+                },
+                {
+                    value: 0
+                },
+                {
+                    value: 5
+                }
+            ],
+            [
+                {
+                    value: 0
+                },
+                {
+                    value: 2
+                },
+                {
+                    value: 0
+                },
+                {
+                    value: 0
+                },
+                {
+                    value: 6
+                },
+                {
+                    value: 0
+                },
+                {
+                    value: 7
+                },
+                {
+                    value: 0
+                },
+                {
+                    value: 0
+                }
+            ],
+            [
+                {
+                    value: 0
+                },
+                {
+                    value: 0
+                },
+                {
+                    value: 0
+                },
+                {
+                    value: 0
+                },
+                {
+                    value: 0
+                },
+                {
+                    value: 11
+                },
+                {
+                    value: 0
+                },
+                {
+                    value: 10
+                },
+                {
+                    value: 0
+                }
+            ],
+            [
+                {
+                    value: 0
+                },
+                {
+                    value: 0
+                },
+                {
+                    value: 0
+                },
+                {
+                    value: 7
+                },
+                {
+                    value: 0
+                },
+                {
+                    value: 0
+                },
+                {
+                    value: 0
+                },
+                {
+                    value: 0
+                },
+                {
+                    value: 0
+                }
+            ],
+            [
+                {
+                    value: 0
+                },
+                {
+                    value: 0
+                },
+                {
+                    value: 0
+                },
+                {
+                    value: 4
+                },
+                {
+                    value: 0
+                },
+                {
+                    value: 0
+                },
+                {
+                    value: 0
+                },
+                {
+                    value: 0
+                },
+                {
+                    value: 0
+                }
+            ],
+            [
+                {
+                    value: 0
+                },
+                {
+                    value: 0
+                },
+                {
+                    value: 0
+                },
+                {
+                    value: 0
+                },
+                {
+                    value: 0
+                },
+                {
+                    value: 0
+                },
+                {
+                    value: 0
+                },
+                {
+                    value: 3
+                },
+                {
+                    value: 6
+                }
+            ],
+            [
+                {
+                    value: 0
+                },
+                {
+                    value: 9
+                },
+                {
+                    value: 0
+                },
+                {
+                    value: 4
+                },
+                {
+                    value: 8
+                },
+                {
+                    value: 0
+                },
+                {
+                    value: 0
+                },
+                {
+                    value: 0
+                },
+                {
+                    value: 0
+                }
+            ],
+            [
+                {
+                    value: 0
+                },
+                {
+                    value: 1
+                },
+                {
+                    value: 0
+                },
+                {
+                    value: 0
+                },
+                {
+                    value: 0
+                },
+                {
+                    value: 0
+                },
+                {
+                    value: 0
+                },
+                {
+                    value: 10
+                },
+                {
+                    value: 3
+                }
+            ]
+        ];
+
+        kuldoncokGame.init(initialField, 'medium');
+    </script>
+</body>
+
+</html>
